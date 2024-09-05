@@ -15,9 +15,13 @@ import uranusTexture from '../galaxy/img/uranus.jpg';
 import uranusRingTexture from '../galaxy/img/uranus ring.png';
 import neptuneTexture from '../galaxy/img/neptune.jpg';
 import plutoTexture from '../galaxy/img/pluto.jpg';
+import moonTexture from '../galaxy/img/moon.jpg';
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+    antialias: true
+});
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -98,6 +102,8 @@ const uranus = createPlanete(7, uranusTexture, 176, {
 });
 const neptune = createPlanete(7, neptuneTexture, 200);
 const pluto = createPlanete(2.8, plutoTexture, 216);
+
+
 
 const pointLight = new THREE.PointLight(0xFFFFFF, 4000, 300);
 scene.add(pointLight);
